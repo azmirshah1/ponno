@@ -273,7 +273,7 @@
             <div class="container">
                 <div class="footer-top">
                     <div class="footer-logo text-center">
-                        <a href="https://www.viniatosolution.com" target="__blank"><img src="assets/img/logo/logo2.png" alt="footer-logo"></a>
+                        <a href="{{ url('/') }}" target="__blank"><img src="assets/img/logo/logo2.png" alt="footer-logo"></a>
                         <p class="copyright">Copyright 2019 © Akashah Ahamad  All right reserved</p>
                     </div>
                     <br>
