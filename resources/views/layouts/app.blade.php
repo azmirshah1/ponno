@@ -1,5 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
 <head>
     <meta charset="utf-8">
@@ -7,11 +12,11 @@
     <title>Lookups Sentry Beta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
     <!-- Fontawesome css -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
     <!-- Animate css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <!-- Themify Icon css -->
     <link rel="stylesheet" href="{{ asset('assets/css/themify-icons.css') }}">
     <!-- Stroke Gap Icon css -->
@@ -59,8 +64,11 @@
                         <!-- Logo Start -->
                         <div class="col-md-3 col order-1 order-md-1 mb-sm-30">
                             <div class="logo">
-                                <a href="index.html"><img src="img/logo/logo.png" alt="logo-img"></a>
-                            </div>
+                        <a href="{{ url('/') }}"><img src="assets/img/logo/logo.png" alt="logo-img"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                        </div>
                         </div>
                         <!-- Logo End -->
                         <!-- Search Box Start Here -->
@@ -82,7 +90,7 @@
             <div class="header-bottom blue-bg header-sticky">
                  <div class="container">
                     <div class="row align-items-center">
-                        <!-- Menu Area Start Here -->
+                        <!-- Menu Area Start Here --end-->
                         <div class="col-lg-10 d-none d-lg-block">
                             <nav>
                                 <ul class="header-menu-list">
@@ -250,92 +258,12 @@
             </div>
         </header>
         <!-- Header Area End Here -->
-        <!-- Slider Area Start -->
-        <div class="slider-area slider-style-two pt-40 pb-30">
-            <!-- Slider Area Start Here -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-11 col-md-11 mb-sm-30">
-                         <div class="slider-activation owl-carousel text-center">
-                            <!-- Start Single Slide -->
-                            <div class="slide align-center-left animation-style-01 bg-image-2">
-                                <div class="slider-content">
-                                    <h6>What is Lookup Sentry?</h6>
-                                    <h1>It is a Community Based<br>General Lookups API Repository
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Contribute Now</button>
-                                    </h1>
-                                </div>
-                            </div>
-                            <!-- End Single Slide -->
-                            <!-- Start Single Slide -->
-                            <div class="slide align-center-left animation-style-02 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Lookups to ease Software Developers</h6>
-                                    <h1>Focus on actual data<br>that matters more
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Search Lookups</button>
-                                    </h1>
-                                </div>
-                            </div>
-                            <div class="slide align-center-left animation-style-01 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Publish your Public Scopes</h6>
-                                    <h1>Collaborate your Scope<br>keep it fresh
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Publish Now</button>
-                                    </h1>
-                                </div>
-                            </div>
-                            <div class="slide align-center-left animation-style-02 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Publish Private Scopes</h6>
-                                    <h1>Privacy sometimes needed<br>because data is valuable
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Publish Now</button>
-                                    </h1>
-                                </div>
-                            </div>
-                            
-                            <div class="slide align-center-left animation-style-01 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Use Updated Scope from Cloud</h6>
-                                    <h1>Just pass the URL to JS<br>No need lookup tables
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Search Lookups</button>
-                                    </h1>
-                                </div>
-                            </div>
 
-                            <div class="slide align-center-left animation-style-01 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Vote Public Scopes</h6>
-                                    <h1>The higher the vote<br>the better its reliability
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Vote Now</button>
-                                    </h1>
-                                </div>
-                            </div>
-
-                            <div class="slide align-center-left animation-style-01 bg-image-3">
-                                <div class="slider-content">
-                                    <h6>Boolean Lookups</h6>
-                                    <h1>Because 2 rows 2 columns<br>is not worth a table
-                                        <br><br>
-                                        <button class="btn btn-warning btn-sm pull-right">Search Lookups</button>
-                                    </h1>
-                                </div>
-                            </div>
-
-                            <!-- End Single Slide -->
-                        </div>
-                        <!-- Slider Area End Here -->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Slider Area End -->
+        <main>
+            @yield('content')
+        </main>
+       <!-- Start Area Buat content sini
+        Masukkan content sini -->
 
         <br>
         <br>
@@ -345,7 +273,7 @@
             <div class="container">
                 <div class="footer-top">
                     <div class="footer-logo text-center">
-                        <a href="https://www.viniatosolution.com" target="__blank"><img src="img/logo/logo2.png" alt="footer-logo"></a>
+                        <a href="https://www.viniatosolution.com" target="__blank"><img src="assets/img/logo/logo2.png" alt="footer-logo"></a>
                         <p class="copyright">Copyright 2019 © Akashah Ahamad  All right reserved</p>
                     </div>
                     <br>
@@ -390,87 +318,4 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
-</html>
-
-======
-
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
 </html>
